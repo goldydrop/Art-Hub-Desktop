@@ -35,7 +35,7 @@ Once your prerequisites are installed, open your terminal (like PowerShell or VS
 
 ```bash
 # Clone the repository to your computer
-git clone [https://github.com/goldydrop/Art-Hub-Desktop.git](https://github.com/goldydrop/Art-Hub-Desktop.git)
+git clone https://github.com/github.com/goldydrop/Art-Hub-Desktop.git
 
 # Go into the project folder
 cd Art-Hub-Desktop
