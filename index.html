@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Artist Reference Dashboard</title>
+	<style>
+		body {
+			background-color: #121212;
+			color: #ffffff;
+			font-family: system-ui, -apple-system, sans-serif;
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+			height: 100vh;
+			overflow: hidden;
+		}
+
+		#toolbar {
+			height: 50px;
+			background-color: #1a1a1a;
+			display: flex;
+			align-items: center;
+			padding: 0 20px;
+			gap: 15px;
+			position: fixed;
+			top: -65px;
+			left: 0;
+			right: 0;
+			z-index: 9999;
+			transition: top 0.3s ease;
+			border-bottom: 1px solid #2a2a2a;
+		}
+
+		#dashboard {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 20px;
+		}
+
+		h1 {
+			font-size: 36px;
+			margin-bottom: 40px;
+			font-weight: 400;
+			letter-spacing: 1px;
+		}
+
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 20px;
+			width: 90%;
+			max-width: 650px;
+		}
+
+		.folder-card, .link-card, .explorer-card, .grid-btn {
+			padding: 22px;
+			border-radius: 12px;
+			text-align: center;
+			font-size: 16px;
+			font-weight: 500;
+			cursor: pointer;
+			box-sizing: border-box;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+		}
+
+		.folder-card {
+			background-color: #1e1e1e;
+			color: #ff9f43;
+			border: 1px dashed #ff9f43;
+		}
+
+			.folder-card:hover {
+				background-color: #252525;
+				transform: translateY(-2px);
+				box-shadow: 0 0 20px rgba(255, 159, 67, 0.25);
+			}
+
+		.link-card {
+			background-color: #1e1e1e;
+			color: #38bdf8;
+			border: 1px solid #333;
+		}
+
+			.link-card:hover {
+				background-color: #252525;
+				border-color: #38bdf8;
+				transform: translateY(-2px);
+				box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+			}
+
+		/* 🗃️ GREEN EXPLORER CARD STYLE */
+		.explorer-card {
+			background-color: #1c2b22;
+			color: #4ade80;
+			border: 1px solid #2d4535;
+		}
+
+			.explorer-card:hover {
+				background-color: #263b2f;
+				border-color: #3e5e48;
+				transform: translateY(-2px);
+				box-shadow: 0 0 20px rgba(74, 222, 128, 0.25);
+			}
+
+		.grid-btn {
+			background-color: #2a2a2a;
+			color: #e0e0e0;
+			border: 1px solid #444;
+		}
+
+			.grid-btn:hover {
+				background-color: #353535;
+				border-color: #666;
+				transform: translateY(-2px);
+				box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+			}
+
+		.span-all {
+			grid-column: span 2;
+		}
+
+		.hidden {
+			display: none !important;
+		}
+
+		.visible {
+			display: grid !important;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="toolbar">
+		<button class="grid-btn" onclick="window.goHome()">🏠 Hub Home</button>
+		<span style="color: #666;">|</span>
+		<span id="active-view-title" style="font-size: 14px; color: #aaa;">Viewing Canvas</span>
+	</div>
+
+
+
+	<!--  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	the default cards:
+
+
+
+
+
+	heres the folder card:        <div class="folder-card" onclick="window.showGrid('-your name of folder here, this is the name you also copy into main.js to link it-')">-this is also your name of folder here, this shows the title of it-</div>
+
+	heres the link card:        <div class="link-card" onclick="window.openApp('-put your website link here-', '-name of website or what you want to call it-', -false or true value here, this makes it have site memory of where you left off-)">-name of button/link here-</div>
+
+	heres the explorer card:        <div class="explorer-card" onclick="window.openExplorer('-this is your path directory to whereever you want it to be on your pc-')">-name of button-</div>
+
+	heres our back to hub button:        <button class="grid-btn span-all" onclick="window.showGrid('main-hub')">← Back to Hub</button>
+
+
+	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+	<div id="dashboard">
+		<h1>Art Reference Hub</h1>
+
+
+		<!-- THIS IS THE MAIN-HUB!!!!!, where you can add link,folder and explorer cards on the main hub. If you make folders make sure to edit the main.js file by adding those file names in there.-->
+		<div id="main-hub" class="grid visible">
+			<div class="folder-card" onclick="window.showGrid('anatomy')">📁 Human Anatomy & Poses</div>
+			<div class="folder-card" onclick="window.showGrid('environment')">📁 Environments & Objects</div>
+		</div>
+
+
+
+		<!--
+	the next div groups are your folders that reveal them selfs when you click on them. add your cards as you like.
+
+	these groups are mainly this, with our cards and return button in it:        <div id="-name of folder card you made before-" class="grid hidden"></div>
+
+	-->
+
+		<div id="anatomy" class="grid hidden">
+			<!-- These id's act as folders and custom name of the folder on the main hub. -->
+			<div class="link-card" onclick="window.openApp('https://x6ud.github.io/#/', 'X6UD Skull Finder', false)">💀 X6UD Skull Finder</div>
+			<div class="explorer-card" onclick="window.openExplorer('C:/Users/Linus/Desktop')">🗃️ Local Anatomy Refs</div>
+			<button class="grid-btn span-all" onclick="window.showGrid('main-hub')">← Back to Hub</button>
+		</div>
+
+		<div id="environment" class="grid hidden">
+			<!-- These id's act as folders and custom name of the folder on the main hub. -->
+			<div class="link-card" onclick="window.openApp('https://www.pinterest.com', 'Pinterest Workspace' , true)">📌 Pinterest</div>
+			<div class="explorer-card" onclick="window.openExplorer('C:/Users/Linus/Desktop')">🗃️ Local Env Refs</div>
+			<button class="grid-btn span-all" onclick="window.showGrid('main-hub')">← Back to Hub</button>
+		</div>
+
+
+		<!-- end of folder groups and contents in them-->
+
+	</div>
+
+	<script type="module" src="./src/main.js"></script>
+</body>
+</html>
