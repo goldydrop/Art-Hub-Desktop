@@ -28,6 +28,7 @@ window.showGrid = function(targetId) {
     const grids = [
         'main-hub', 
         'sketchdaily', 
+        'lineofaction',
         /* 👈 Add a comma here, then type your 'new-folder-name' */
     ];
 

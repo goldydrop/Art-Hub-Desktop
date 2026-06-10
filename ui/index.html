@@ -190,6 +190,7 @@
 		<!-- THIS IS THE MAIN-HUB!!!!!, where you can add link,folder and explorer cards on the main hub. If you make folders make sure to edit the main.js file by adding those file names in there.-->
 		<div id="main-hub" class="grid visible">
 			<div class="folder-card" onclick="window.showGrid('sketchdaily')">📁 sketchdaily catagorys</div>
+			<div class="folder-card" onclick="window.showGrid('lineofaction')">📁 line of action catagorys</div>
 			<div class="link-card" onclick="window.openApp('https://x6ud.github.io/#/', 'skullfinder', false)">💀 X6UD Skull Finder</div>
 			<div class="link-card" onclick="window.openApp('https://imaginemore.art', 'imaginemore', false)">🖼️ Imagine More</div>
 			<div class="link-card" onclick="window.openApp('https://mapcrunch.com', 'randommap', false)">🌍 Random Map</div>
@@ -255,7 +256,18 @@
 			<button class="grid-btn span-all" onclick="window.showGrid('main-hub')">← Back to Hub</button>
 		</div>
 
-		
+
+
+
+
+		<div id="lineofaction" class="grid hidden">
+			<!-- These id's act as folders and custom name of the folder on the main hub. -->
+			<div class="link-card" onclick="window.openApp('https://line-of-action.com/', 'lineofaction-main', false)">main</div>
+			
+			<button class="grid-btn span-all" onclick="window.showGrid('main-hub')">← Back to Hub</button>
+		</div>
+
+
 
 
 		<!-- end of folder groups and contents in them-->
