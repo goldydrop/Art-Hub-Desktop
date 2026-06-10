@@ -27,8 +27,7 @@ window.showGrid = function(targetId) {
     // ADD YOUR NEW FOLDER ID NAMES INSIDE THESE BRACKETS:
     const grids = [
         'main-hub', 
-        'anatomy', 
-        'environment'
+        'sketchdaily', 
         /* 👈 Add a comma here, then type your 'new-folder-name' */
     ];
 

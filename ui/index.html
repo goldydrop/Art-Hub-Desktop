@@ -37,9 +37,29 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			justify-content: center;
+			justify-content: flex-start; /* 1. Keeps items starting from the top */
 			padding: 20px;
+			overflow-y: auto; /* 2. Turns on vertical scrolling! */
+			height: calc(100vh - 40px); /* 3. Forces it to respect the screen size */
 		}
+
+			/* Custom sleek dark scrollbar */
+			#dashboard::-webkit-scrollbar {
+				width: 8px;
+			}
+
+			#dashboard::-webkit-scrollbar-track {
+				background: #121212;
+			}
+
+			#dashboard::-webkit-scrollbar-thumb {
+				background: #2a2a2a;
+				border-radius: 4px;
+			}
+
+				#dashboard::-webkit-scrollbar-thumb:hover {
+					background: #3a3a3a;
+				}
 
 		h1 {
 			font-size: 36px;
@@ -169,8 +189,11 @@
 
 		<!-- THIS IS THE MAIN-HUB!!!!!, where you can add link,folder and explorer cards on the main hub. If you make folders make sure to edit the main.js file by adding those file names in there.-->
 		<div id="main-hub" class="grid visible">
-			<div class="folder-card" onclick="window.showGrid('anatomy')">📁 Human Anatomy & Poses</div>
-			<div class="folder-card" onclick="window.showGrid('environment')">📁 Environments & Objects</div>
+			<div class="folder-card" onclick="window.showGrid('sketchdaily')">📁 sketchdaily catagorys</div>
+			<div class="link-card" onclick="window.openApp('https://x6ud.github.io/#/', 'skullfinder', false)">💀 X6UD Skull Finder</div>
+			<div class="link-card" onclick="window.openApp('https://imaginemore.art', 'imaginemore', false)">🖼️ Imagine More</div>
+			<div class="link-card" onclick="window.openApp('https://mapcrunch.com', 'randommap', false)">🌍 Random Map</div>
+			<div class="link-card" onclick="window.openApp('https://movie-screencaps.com', 'screencaps', false)">🎬 Movie Frames</div>
 		</div>
 
 
@@ -182,19 +205,57 @@
 
 	-->
 
-		<div id="anatomy" class="grid hidden">
+		<div id="sketchdaily" class="grid hidden">
 			<!-- These id's act as folders and custom name of the folder on the main hub. -->
-			<div class="link-card" onclick="window.openApp('https://x6ud.github.io/#/', 'X6UD Skull Finder', false)">💀 X6UD Skull Finder</div>
-			<div class="explorer-card" onclick="window.openExplorer('C:/Users/-----/Desktop')">🗃️ Local Anatomy Refs</div>
+			<div class="link-card" onclick="window.openApp('https://sketchdaily.net', 'sketchdaily-main', false)">main</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=true&Time=30&recentImagesOnly=false', 'sketchdaily-main', false)">💀 clothed male 30s</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=true&Time=30&recentImagesOnly=false', 'sketchdaily-main', false)">💀 clothed female 30s</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=true&NSFW=true&Time=30&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nsfw clothed male 30s</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=true&NSFW=true&Time=30&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nsfw clothed female 30s</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=false&Time=30&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nude male 30s</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=false&Time=30&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nude female 30s</div>
+
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=true&Time=90&recentImagesOnly=false', 'sketchdaily-main', false)">💀 clothed male 1.5m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=true&Time=90&recentImagesOnly=false', 'sketchdaily-main', false)">💀 clothed female 1.5m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=true&NSFW=true&Time=90&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nsfw clothed male 1.5m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=true&NSFW=true&Time=90&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nsfw clothed female 1.5m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=false&Time=90&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nude male 1.5m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=false&Time=90&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nude female 1.5m</div>
+
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=true&Time=180&recentImagesOnly=false', 'sketchdaily-main', false)">💀 clothed male 3m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=true&Time=180&recentImagesOnly=false', 'sketchdaily-main', false)">💀 clothed female 3m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=true&NSFW=true&Time=180&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nsfw clothed male 3n</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=true&NSFW=true&Time=180&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nsfw clothed female 3m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=false&Time=180&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nude male 3m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=false&Time=180&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nude female 3m</div>
+
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=true&Time=300&recentImagesOnly=false', 'sketchdaily-main', false)">💀 clothed male 5m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=true&Time=300&recentImagesOnly=false', 'sketchdaily-main', false)">💀 clothed female 5m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=true&NSFW=true&Time=300&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nsfw clothed male 5m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=true&NSFW=true&Time=300&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nsfw clothed female 5m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=false&Time=300&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nude male 5m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=false&Time=300&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nude female 5m</div>
+
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=true&Time=600&recentImagesOnly=false', 'sketchdaily-main', false)">💀 clothed male 10m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=true&Time=600&recentImagesOnly=false', 'sketchdaily-main', false)">💀 clothed female 10m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=true&NSFW=true&Time=600&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nsfw clothed male 10m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=true&NSFW=true&Time=600&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nsfw clothed female 10m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=false&Time=600&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nude male 10m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=false&Time=600&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nude female 10m</div>
+
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=true&Time=900&recentImagesOnly=false', 'sketchdaily-main', false)">💀 clothed male 15m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=true&Time=900&recentImagesOnly=false', 'sketchdaily-main', false)">💀 clothed female 15m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=true&NSFW=true&Time=900&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nsfw clothed male 15m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=true&NSFW=true&Time=900&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nsfw clothed female 15m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Male&Clothing=false&Time=900&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nude male 15m</div>
+			<div class="link-card" onclick="window.openApp('https://www.sketchdaily.net/en/view/FullBodies?Gender=Female&Clothing=false&Time=900&recentImagesOnly=false', 'sketchdaily-main', false)">💀 nude female 15m</div>
+
+
+			<div class="explorer-card" onclick="window.openExplorer('C:/Users/-----/Desktop')">🗃️ Local Refs</div>
 			<button class="grid-btn span-all" onclick="window.showGrid('main-hub')">← Back to Hub</button>
 		</div>
 
-		<div id="environment" class="grid hidden">
-			<!-- These id's act as folders and custom name of the folder on the main hub. -->
-			<div class="link-card" onclick="window.openApp('https://www.pinterest.com', 'Pinterest Workspace' , true)">📌 Pinterest</div>
-			<div class="explorer-card" onclick="window.openExplorer('C:/Users/-----/Desktop')">🗃️ Local Env Refs</div>
-			<button class="grid-btn span-all" onclick="window.showGrid('main-hub')">← Back to Hub</button>
-		</div>
+		
 
 
 		<!-- end of folder groups and contents in them-->
