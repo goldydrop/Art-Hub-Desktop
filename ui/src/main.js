@@ -150,7 +150,7 @@ window.openApp = async function(url, titleText, keepAlive = false) {
                 height: logicalHeight,
                 x: logicalX,
                 y: logicalY,
-                visible: false 
+                visible: false
             });
         } 
 
