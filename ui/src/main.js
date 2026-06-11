@@ -122,6 +122,15 @@ window.showMemoryModal = function(titleText, targetLabel) {
 
 window.openApp = async function(url, titleText, keepAlive = false) {
     try {
+        // 📱 MOBILE FALLBACK: Android only allows one native window!
+        // If running on Android, bypass desktop window swapping and open in the phone's browser.
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        if (isAndroid) {
+            // 🛠️ FIX: Using openUrl instead of openPath so Android redirects to Chrome/default browser safely
+            await window.__TAURI__.opener.openUrl(url);
+            return;
+        }
+
         const { WebviewWindow } = window.__TAURI__.webviewWindow;
         const currentWindow = window.__TAURI__.window.getCurrentWindow();
 
